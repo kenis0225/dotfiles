@@ -34,6 +34,9 @@ git config --global user.email "ken.huang1@ecoflow.com"
 ```bash
 mv ~/Library/Application\ Support/Code/User/settings.json ~/Library/Application\ Support/Code/User/settings.json.bak
 ln -s ~/.config/Code/User/settings.json ~/Library/Application\ Support/Code/User/settings.json
+
+mv ~/Library/Application\ Support/Code/User/mcp.json ~/Library/Application\ Support/Code/User/mcp.json.bak
+ln -s ~/.config/Code/User/mcp.json ~/Library/Application\ Support/Code/User/mcp.json
 ```
 
 #### extensions
