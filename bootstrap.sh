@@ -1,30 +1,14 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-: "${BASH_VERSION:?请用 bash 执行本脚本（例如 bash bootstrap.sh 或 ./bootstrap.sh）}"
-
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]:-$0}")" && pwd -P)"
-REPO_ROOT="$SCRIPT_DIR"
-while [[ "$REPO_ROOT" != "/" ]] && [[ ! -f "$REPO_ROOT/chezmoi.toml" && ! -f "$REPO_ROOT/chezmoi.yaml" ]]; do
-  REPO_ROOT="$(dirname "$REPO_ROOT")"
-done
-if [[ -f "$REPO_ROOT/chezmoi.toml" ]]; then
-  CHEZMOI_SRC="$REPO_ROOT/chezmoi.toml"
-  CHEZMOI_DST_NAME=chezmoi.toml
-elif [[ -f "$REPO_ROOT/chezmoi.yaml" ]]; then
-  CHEZMOI_SRC="$REPO_ROOT/chezmoi.yaml"
-  CHEZMOI_DST_NAME=chezmoi.yaml
-else
-  echo "错误：找不到 chezmoi.toml 或 chezmoi.yaml（已从 $SCRIPT_DIR 向上搜索）" >&2
-  exit 1
-fi
-cd "$REPO_ROOT"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd "$SCRIPT_DIR"
 
 if [[ "$SHELL" != */fish ]]; then
   sudo chsh "$(id -un)" --shell "/usr/bin/fish"
 fi
 
-if [[ ! -d .local/bin ]]; then
+if [ ! -d .local/bin ]; then
   mkdir -p .local/bin
 fi
 
@@ -33,7 +17,7 @@ CHEZMOI_RELEASE_URL="https://github.com/twpayne/chezmoi/releases/download/v${CHE
 CHEZMOI_NAME=chezmoi.tar.gz
 CHEZMOI_DIR=./.local/opt/chezmoi
 
-if [[ -d "$CHEZMOI_DIR" ]]; then
+if [ -d "$CHEZMOI_DIR" ]; then
   rm -rf "$CHEZMOI_DIR"
 fi
 mkdir -p "$CHEZMOI_DIR"
@@ -42,18 +26,18 @@ tar -xf "$CHEZMOI_DIR/$CHEZMOI_NAME" -C "$CHEZMOI_DIR"
 rm -f "$CHEZMOI_DIR/$CHEZMOI_NAME"
 ln -sf "$(pwd)/.local/opt/chezmoi/chezmoi" "$(pwd)/.local/bin/chezmoi"
 
-if [[ -d "$HOME/.config/chezmoi" ]]; then
+if [ -d "$HOME/.config/chezmoi" ]; then
   rm -rf "$HOME/.config/chezmoi"
 fi
 mkdir -p "$HOME/.config/chezmoi"
-cp "$CHEZMOI_SRC" "$HOME/.config/chezmoi/$CHEZMOI_DST_NAME"
+cp "./chezmoi.toml" "$HOME/.config/chezmoi/chezmoi.toml"
 
 LAZYGIT_VERSION=0.60.0
 LAZYGIT_RELEASE_URL="https://github.com/jesseduffield/lazygit/releases/download/v${LAZYGIT_VERSION}/lazygit_${LAZYGIT_VERSION}_linux_x86_64.tar.gz"
 LAZYGIT_NAME=lazygit.tar.gz
 LAZYGIT_DIR=./.local/opt/lazygit
 
-if [[ -d "$LAZYGIT_DIR" ]]; then
+if [ -d "$LAZYGIT_DIR" ]; then
   rm -rf "$LAZYGIT_DIR"
 fi
 mkdir -p "$LAZYGIT_DIR"
@@ -67,7 +51,7 @@ YAZI_RELEASE_URL="https://github.com/sxyazi/yazi/releases/download/v${YAZI_VERSI
 YAZI_NAME=yazi-x86_64-unknown-linux-gnu
 YAZI_DIR=./.local/opt/yazi
 
-if [[ -d "$YAZI_DIR" ]]; then
+if [ -d "$YAZI_DIR" ]; then
   rm -rf "$YAZI_DIR"
 fi
 mkdir -p "$YAZI_DIR"
@@ -82,7 +66,7 @@ NVIM_RELEASE_URL="https://github.com/neovim/neovim/releases/download/${NVIM_VERS
 NVIM_NAME=nvim-linux-x86_64
 NVIM_DIR=./.local/opt/nvim
 
-if [[ -d "$NVIM_DIR" ]]; then
+if [ -d "$NVIM_DIR" ]; then
   rm -rf "$NVIM_DIR"
 fi
 mkdir -p "$NVIM_DIR"
@@ -95,7 +79,7 @@ STARSHIP_VERSION=1.25.0
 STARSHIP_RELEASE_URL="https://github.com/starship/starship/releases/download/v${STARSHIP_VERSION}/starship-x86_64-unknown-linux-gnu.tar.gz"
 STARSHIP_DIR=./.local/opt/starship
 
-if [[ -d "$STARSHIP_DIR" ]]; then
+if [ -d "$STARSHIP_DIR" ]; then
   rm -rf "$STARSHIP_DIR"
 fi
 mkdir -p "$STARSHIP_DIR"
