@@ -1,4 +1,9 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
+set -euo pipefail
+
+if [[ "$SHELL" != */fish ]]; then
+  sudo chsh "$(id -un)" --shell "/usr/bin/fish"
+fi
 
 if [ ! -d .local/bin ]; then
     mkdir -p .local/bin
@@ -52,3 +57,30 @@ unzip $YAZI_DIR/$YAZI_NAME.zip -d $YAZI_DIR
 rm -rf $YAZI_DIR/$YAZI_NAME.zip
 ln -sf $(pwd)/.local/opt/yazi/$YAZI_NAME/yazi $(pwd)/.local/bin/yazi
 ln -sf $(pwd)/.local/opt/yazi/$YAZI_NAME/ya $(pwd)/.local/bin/ya
+
+NVIM_VERSION=nightly
+NVIM_RELEASE_URL="https://github.com/neovim/neovim/releases/download/${NVIM_VERSION}/nvim-linux-x86_64.tar.gz
+"
+NVIM_NAME=nvim-linux-x86_64
+NVIM_DIR=./.local/opt/nvim
+if [ -d "$NVIM_DIR" ]; then
+  rm -rf "$NVIM_DIR"
+fi
+mkdir -p "$NVIM_DIR"
+curl -fL -o "$NVIM_DIR/${NVIM_NAME}.tar.gz" "$NVIM_RELEASE_URL"
+tar -xzf "$NVIM_DIR/${NVIM_NAME}.tar.gz" -C "$NVIM_DIR"
+rm -f "$NVIM_DIR/${NVIM_NAME}.tar.gz"
+ln -sf "$(pwd)/.local/opt/nvim/$NVIM_NAME/bin/nvim" "$(pwd)/.local/bin/nvim"
+
+STARSHIP_VERSION=1.25.0
+STARSHIP_RELEASE_URL="https://github.com/starship/starship/releases/download/v${STARSHIP_VERSION}/starship-x8
+6_64-unknown-linux-gnu.tar.gz"
+STARSHIP_DIR=./.local/opt/starship
+if [ -d "$STARSHIP_DIR" ]; then
+  rm -rf "$STARSHIP_DIR"
+fi
+mkdir -p "$STARSHIP_DIR"
+curl -fL -o "$STARSHIP_DIR/starship.tar.gz" "$STARSHIP_RELEASE_URL"
+tar -xzf "$STARSHIP_DIR/starship.tar.gz" -C "$STARSHIP_DIR"
+rm -f "$STARSHIP_DIR/starship.tar.gz"
+ln -sf "$(pwd)/.local/opt/starship/starship" "$(pwd)/.local/bin/starship"
