@@ -1,10 +1,13 @@
 tap "anomalyco/tap"
+tap "deskflow/tap"
 tap "felixkratz/formulae"
 tap "gromgit/fuse"
+tap "laishulu/homebrew"
 tap "lihaoyun6/tap"
 tap "lizardbyte/homebrew"
-tap "deskflow/tap"
 tap "nikitabobko/tap"
+# Bourne-Again SHell, a UNIX command interpreter
+brew "bash"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
 # GNU internationalization (i18n) and localization (l10n) library
@@ -13,6 +16,10 @@ brew "gettext"
 brew "chezmoi"
 # Cross-platform make
 brew "cmake"
+# GNU File, Shell, and Text utilities
+brew "coreutils"
+# DuckDuckGo from the terminal
+brew "ddgr"
 # Modern, maintained replacement for ls
 brew "eza"
 # Like neofetch, but much faster because written mostly in C
@@ -25,14 +32,24 @@ brew "ffmpeg-full"
 brew "fish"
 # Fast and simple Node.js version manager
 brew "fnm"
+# CLI program that accepts piped input and presents files for selection
+brew "fpp"
 # Command-line fuzzy finder written in Go
 brew "fzf"
+# GNU awk utility
+brew "gawk"
 # GitHub command-line tool
 brew "gh"
+# Cinematic Git commit replay tool
+brew "gitlogue"
+# Open-source GitLab command-line tool
+brew "glab"
 # Render markdown on the CLI
 brew "glow"
+# GNU implementation of the famous stream editor
+brew "gnu-sed"
 # Tools and libraries to manipulate images in many formats
-brew "imagemagick-full"
+brew "imagemagick-full", link: true
 # Lightweight and flexible command-line JSON processor
 brew "jq"
 # Simple terminal UI for git commands
@@ -43,6 +60,10 @@ brew "mas"
 brew "mole"
 # Small build system for use with gyp or CMake
 brew "ninja"
+# Retrieves currently playing media, and simulates media actions
+brew "nowplaying-cli"
+# Animated pipes terminal screensaver
+brew "pipes-sh"
 # PDF rendering library (based on the xpdf-3.0 code base)
 brew "poppler"
 # SVG rendering tool and library
@@ -55,10 +76,14 @@ brew "scrcpy"
 brew "sevenzip"
 # Cross-shell prompt for astronauts
 brew "starship"
+# Simplified and community-driven man pages
+brew "tldr"
 # Terminal multiplexer
 brew "tmux"
 # Alternative ssh client with additional features to meet your needs
 brew "trzsz-ssh"
+# Terminal UI OS (Terminal Multiplexer)
+brew "tuios"
 # Extremely fast Python package installer and resolver, written in Rust
 brew "uv"
 # Internet file retriever
@@ -83,38 +108,43 @@ cask "nikitabobko/tap/aerospace"
 cask "alt-tab"
 # Android SDK component
 cask "android-platform-tools"
+# Tools for building Android applications
+cask "android-studio"
 # Allows connection to a computer remotely
 cask "anydesk"
-# Application uninstaller
-cask "appcleaner"
 # Cloud storage service
 cask "baidunetdisk"
 # Open-source KVM software
 cask "barrier"
-# Tools for building Android applications
-cask "android-studio"
 # Display management tool
 cask "betterdisplay"
 # Compare files and folders
 cask "beyond-compare"
 # Virtual Audio Driver
 cask "blackhole-2ch"
-# Clipboard manager with advanced features
-cask "copyq"
 # Voice and text chat software
 cask "discord"
-cask "font-fira-code-nerd-font"
 # Write, edit, and chat about your code with AI
 cask "cursor"
+# 3D creation suite
+cask "blender"
+# Continuation of Clash Verge - A Clash Meta GUI based on Tauri
+cask "clash-verge-rev"
 # Mouse and keyboard sharing utility
 cask "deskflow/tap/deskflow"
 # Dictionary and translator app
 cask "easydict"
 # Collaborative team software
 cask "figma"
+# Per-application volume mixer, equalizer, and audio router
+cask "finetune"
 # Web browser
 cask "firefox"
+cask "font-fira-code-nerd-font"
 cask "font-jetbrains-mono-nerd-font"
+cask "font-monaspice-nerd-font"
+cask "font-noto-sans-symbols-2"
+cask "laishulu/homebrew/font-sarasa-nerd"
 cask "font-symbols-only-nerd-font"
 # Terminal emulator that uses platform-native UI and GPU acceleration
 cask "ghostty"
@@ -124,44 +154,46 @@ cask "gimp"
 cask "google-chrome"
 # Desktop automation application
 cask "hammerspoon"
-# Menu bar manager
-cask "jordanbaird-ice"
+# Open-source screen recorder built with web technology
+cask "kap"
 # Open-source keystroke visualiser
 cask "keycastr"
+# GPU-based terminal emulator
+cask "kitty"
 # Support for Logitech G gear
 cask "logitech-g-hub"
+# Trims video and audio files losslessly
+cask "losslesscut"
 # Open-source firewall to block unknown outgoing connections
 cask "lulu"
 # Tool for multi-language users
 cask "input-source-pro"
-# Open-source screen recorder built with web technology
-cask "kap"
 # Keyboard customiser
 cask "karabiner-elements"
-# GPU-based terminal emulator
-cask "kitty"
 # Mouse utility to add gesture functions and smooth scrolling to 3rd party mice
 cask "mac-mouse-fix"
 # File system integration
 cask "macfuse"
+# Multi-platform web browser
+cask "microsoft-edge"
 # Re-mounts write-protected NTFS volumes
 cask "mounty"
 # Open-source software for live streaming and screen recording
 cask "obs"
 # Instant messaging tool
 cask "qq"
-# Tool that provides consistent, highly configurable symbols for apps
-cask "sf-symbols"
-# Multi-platform web browser
-cask "microsoft-edge"
 # Control your tools with a few keystrokes
 cask "raycast"
+# Tool that provides consistent, highly configurable symbols for apps
+cask "sf-symbols"
 # Snip or pin screenshots
 cask "snipaste"
+# Rime input method engine
+cask "squirrel-app"
 # System monitor for the menu bar
 cask "stats"
-# Pin any window to the top of your screen.
-cask "lihaoyun6/tap/topit"
+# Virtual machines UI using QEMU
+cask "utm"
 # Open-source code editor
 cask "visual-studio-code"
 # Multimedia player
@@ -170,13 +202,13 @@ cask "vlc"
 cask "wechat"
 # GPU-accelerated cross-platform terminal emulator and multiplexer
 cask "wezterm"
-mas "Keynote讲演", id: 409183694
-mas "Numbers表格", id: 409203825
-mas "Pages文稿", id: 409201541
-mas "腾讯会议", id: 1484048379
-mas "飞书", id: 1551632588
+# All-in-one office service platform in Chinese
+cask "wpsoffice-cn"
 # Multiplayer code editor
 cask "zed"
+mas "Xcode", id: 497799835
+mas "腾讯会议", id: 1484048379
+mas "飞书", id: 1551632588
 vscode "catppuccin.catppuccin-vsc"
 vscode "donjayamanne.githistory"
 vscode "eamodio.gitlens"

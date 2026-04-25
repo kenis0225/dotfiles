@@ -228,10 +228,23 @@ cat extensions.txt | xargs -n 1 code --install-extension
 ln -s ./tokyo-night.conf ./theme.conf
 ```
 
+#### rime
+
+```bash
+ln -s $HOME/.config/rime/default.custom.yaml ./default.custom.yaml
+ln -s $HOME/.config/rime/squirrel.custom.yaml ./squirrel.custom.yaml
+```
+
 ### Windows
 
 #### PowerShell
 
 ```pwsh
-new-Item -ItemType SymbolicLink -Path ~/Documents/PowerShell -Target ~/.config/PowerShell
+# PowerShell 7
+New-Item -ItemType Directory -Force $env:USERPROFILE\Documents\PowerShell
+new-Item -ItemType SymbolicLink -Path $env:USERPROFILE\Documents\PowerShell\Microsoft.PowerShell_profile.ps1 -Target $env:USERPROFILE\.config\PowerShell\profile.ps1
+
+# PowerShell 5
+New-Item -ItemType Directory -Force $env:USERPROFILE\Documents\WindowsPowerShell
+new-Item -ItemType SymbolicLink -Path $env:USERPROFILE\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1 -Target $env:USERPROFILE\.config\PowerShell\profile.ps1
 ```

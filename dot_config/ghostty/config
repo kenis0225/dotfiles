@@ -1,6 +1,9 @@
 theme = Catppuccin Mocha
 background-opacity = 0.90
+font-family = "JetBrainsMono Nerd Font Mono"
+# font-family = "Sarasa Term SC Nerd"
 font-size = 20
+font-thicken = true
 copy-on-select = clipboard
 split-divider-color = #cba6f7
 macos-option-as-alt = right
