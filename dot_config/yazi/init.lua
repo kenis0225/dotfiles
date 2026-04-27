@@ -12,12 +12,29 @@ function Linemode:size_and_mtime()
   return string.format("%s %s", size and ya.readable_size(size) or "-", time)
 end
 
+function ensure_flavor(flavor_name, download_url)
+	local home = os.getenv("HOME")
+	local flavor_path = home .. "/.config/yazi/flavors/" .. flavor_name .. "/flavor.toml"
+
+	if not os.execute([[test -f "]] .. flavor_path .. [["]]) then
+		os.execute([[mkdir -p "$(dirname "]] .. flavor_path .. [[")"]])
+		os.execute([[curl -fLo "]] .. flavor_path .. [[" "]] .. download_url .. [["]])
+		os.execute([[echo >> "]] .. flavor_path .. [["]])
+		os.execute([[echo "# copy from ]] .. download_url .. [[" >> "]] .. flavor_path .. [["]])
+	end
+end
+
 function ensure_plugin(plugin)
 	local ok = pcall(require, plugin)
 	if not ok then
 		os.execute("ya pkg add " .. plugin .. " >/dev/null 2>&1")
 	end
 end
+
+ensure_flavor(
+	"tokyonight_night.yazi",
+	"https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/yazi/tokyonight_night.toml"
+)
 
 ensure_plugin("yazi-rs/plugins:full-border")
 ensure_plugin("Rolv-Apneseth/starship")
