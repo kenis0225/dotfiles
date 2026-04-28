@@ -123,6 +123,22 @@ rm -f "$ZELLIJ_DIR/zellij.tar.gz"
 ln -sf "$HOME/.local/opt/zellij/zellij" "$HOME/.local/bin/zellij"
 echo "[bootstrap] zellij installed"
 
+FZF_VERSION=0.72.0
+FZF_RELEASE_URL="https://github.com/junegunn/fzf/releases/download/v${FZF_VERSION}/fzf-${FZF_VERSION}-linux_amd64.tar.gz"
+FZF_NAME=fzf.tar.gz
+FZF_DIR=$HOME/.local/opt/fzf
+
+if [ -d "$FZF_DIR" ]; then
+  rm -rf "$FZF_DIR"
+fi
+mkdir -p "$FZF_DIR"
+echo "[bootstrap] Downloading fzf ${FZF_VERSION}..."
+curl -fsSL -o "$FZF_DIR/$FZF_NAME" "$FZF_RELEASE_URL"
+tar -xzf "$FZF_DIR/$FZF_NAME" -C "$FZF_DIR"
+rm -f "$FZF_DIR/$FZF_NAME"
+ln -sf "$HOME/.local/opt/fzf/fzf" "$HOME/.local/bin/fzf"
+echo "[bootstrap] fzf installed"
+
 if command -v npm &>/dev/null; then
   echo "[bootstrap] Installing opencode-ai..."
   npm install -g opencode-ai 2>/dev/null

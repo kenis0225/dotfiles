@@ -17,6 +17,10 @@ fish_add_path ~/.local/bin
 #   /opt/homebrew/bin/brew shellenv | source
 # end
 
+if type -q fzf
+  fzf --fish | source
+end
+
 if type -q jj
   jj util completion fish | source
 end
