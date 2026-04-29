@@ -139,6 +139,66 @@ rm -f "$FZF_DIR/$FZF_NAME"
 ln -sf "$HOME/.local/opt/fzf/fzf" "$HOME/.local/bin/fzf"
 echo "[bootstrap] fzf installed"
 
+ZOXIDE_VERSION=0.9.9
+ZOXIDE_RELEASE_URL="https://github.com/ajeetdsouza/zoxide/releases/download/v${ZOXIDE_VERSION}/zoxide-${ZOXIDE_VERSION}-x86_64-unknown-linux-musl.tar.gz"
+ZOXIDE_DIR=$HOME/.local/opt/zoxide
+
+if [ -d "$ZOXIDE_DIR" ]; then
+  rm -rf "$ZOXIDE_DIR"
+fi
+mkdir -p "$ZOXIDE_DIR"
+echo "[bootstrap] Downloading zoxide ${ZOXIDE_VERSION}..."
+curl -fsSL -o "$ZOXIDE_DIR/zoxide.tar.gz" "$ZOXIDE_RELEASE_URL"
+tar -xzf "$ZOXIDE_DIR/zoxide.tar.gz" -C "$ZOXIDE_DIR"
+rm -f "$ZOXIDE_DIR/zoxide.tar.gz"
+ln -sf "$HOME/.local/opt/zoxide/zoxide" "$HOME/.local/bin/zoxide"
+echo "[bootstrap] zoxide installed"
+
+EZA_VERSION=0.23.4
+EZA_RELEASE_URL="https://github.com/eza-community/eza/releases/download/v${EZA_VERSION}/eza_x86_64-unknown-linux-musl.tar.gz"
+EZA_DIR=$HOME/.local/opt/eza
+
+if [ -d "$EZA_DIR" ]; then
+  rm -rf "$EZA_DIR"
+fi
+mkdir -p "$EZA_DIR"
+echo "[bootstrap] Downloading eza ${EZA_VERSION}..."
+curl -fsSL -o "$EZA_DIR/eza.tar.gz" "$EZA_RELEASE_URL"
+tar -xzf "$EZA_DIR/eza.tar.gz" -C "$EZA_DIR"
+rm -f "$EZA_DIR/eza.tar.gz"
+ln -sf "$HOME/.local/opt/eza/eza" "$HOME/.local/bin/eza"
+echo "[bootstrap] eza installed"
+
+FD_VERSION=10.4.2
+FD_RELEASE_URL="https://github.com/sharkdp/fd/releases/download/v${FD_VERSION}/fd-v${FD_VERSION}-x86_64-unknown-linux-musl.tar.gz"
+FD_DIR=$HOME/.local/opt/fd
+
+if [ -d "$FD_DIR" ]; then
+  rm -rf "$FD_DIR"
+fi
+mkdir -p "$FD_DIR"
+echo "[bootstrap] Downloading fd ${FD_VERSION}..."
+curl -fsSL -o "$FD_DIR/fd.tar.gz" "$FD_RELEASE_URL"
+tar -xzf "$FD_DIR/fd.tar.gz" -C "$FD_DIR" --strip-components=1
+rm -f "$FD_DIR/fd.tar.gz"
+ln -sf "$HOME/.local/opt/fd/fd" "$HOME/.local/bin/fd"
+echo "[bootstrap] fd installed"
+
+RG_VERSION=15.1.0
+RG_RELEASE_URL="https://github.com/BurntSushi/ripgrep/releases/download/${RG_VERSION}/ripgrep-${RG_VERSION}-x86_64-unknown-linux-musl.tar.gz"
+RG_DIR=$HOME/.local/opt/ripgrep
+
+if [ -d "$RG_DIR" ]; then
+  rm -rf "$RG_DIR"
+fi
+mkdir -p "$RG_DIR"
+echo "[bootstrap] Downloading ripgrep ${RG_VERSION}..."
+curl -fsSL -o "$RG_DIR/rg.tar.gz" "$RG_RELEASE_URL"
+tar -xzf "$RG_DIR/rg.tar.gz" -C "$RG_DIR" --strip-components=1
+rm -f "$RG_DIR/rg.tar.gz"
+ln -sf "$HOME/.local/opt/ripgrep/rg" "$HOME/.local/bin/rg"
+echo "[bootstrap] ripgrep installed"
+
 if command -v npm &>/dev/null; then
   echo "[bootstrap] Installing opencode-ai..."
   npm install -g opencode-ai 2>/dev/null
