@@ -38,6 +38,7 @@ ensure_flavor(
 
 ensure_plugin("yazi-rs/plugins:full-border")
 ensure_plugin("Rolv-Apneseth/starship")
+ensure_plugin("AnirudhG07/plugins-yazi:copy-file-contents")
 
 -- install via "ya pkg add yazi-rs/plugins:full-border"
 require("full-border"):setup()
@@ -59,4 +60,10 @@ require("starship"):setup({
     -- Separator to place between the right prompt and the count widget. Use `count_separator = ""`
     -- to have no space between the widgets.
     count_separator = " ",
+})
+
+-- install via "ya pkg add AnirudhG07/plugins-yazi:copy-file-contents"
+require("copy-file-contents"):setup({
+	append_char = "\n",
+	notification = true,
 })
