@@ -1,0 +1,18 @@
+[user]
+  email = {{ .gitconfig.email | quote }}
+  name = {{ .gitconfig.name | quote }}
+
+#{{- if ne .chezmoi.os "windows" }}
+#[credential]
+#  helper = manager
+#  credentialStore = cache
+#{{- else }}
+#[credential "helperselector"]
+#  selected = manager
+#{{- end }}
+
+#[credential]
+#  helper = store
+
+[http]
+  postBuffer = 1048576000
