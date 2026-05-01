@@ -6,6 +6,8 @@ end
 # -------- variable --------
 set -Ux EDITOR nvim
 set -Ux VISUAL nvim
+# set -Ux EDITOR env NVIM_APPNAME=nvim_nvchad nvim
+# set -Ux VISUAL env NVIM_APPNAME=nvim_nvchad nvim
 
 fish_add_path ~/.local/bin
 
