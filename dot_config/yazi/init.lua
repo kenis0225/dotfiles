@@ -38,8 +38,10 @@ ensure_flavor(
 
 ensure_plugin("yazi-rs/plugins:full-border")
 ensure_plugin("Rolv-Apneseth/starship")
-ensure_plugin("yazi-rs/plugins:vcs-files")
 ensure_plugin("AnirudhG07/plugins-yazi:copy-file-contents")
+ensure_plugin("yazi-rs/plugins:vcs-files")
+ensure_plugin("yazi-rs/plugins:git")
+ensure_plugin("AminurAlam/yazi-plugins:preview-git")
 
 -- install via "ya pkg add yazi-rs/plugins:full-border"
 require("full-border"):setup()
@@ -68,3 +70,9 @@ require("copy-file-contents"):setup({
 	append_char = "\n",
 	notification = true,
 })
+
+-- install via "ya pkg add yazi-rs/plugins:git"
+require("git"):setup {
+	-- Order of status signs showing in the linemode
+	order = 1500,
+}
