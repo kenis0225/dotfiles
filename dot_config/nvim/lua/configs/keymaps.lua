@@ -46,7 +46,7 @@ map("n", "<C-q>", "<cmd>qa<cr>", { desc = "Quit All" })
 map("v", "<", "<gv")
 map("v", ">", ">gv")
 
---windows
+-- windows
 map("n", "<leader>-", "<C-W>s", { desc = "Split Window Below", remap = true })
 map("n", "<leader>|", "<C-W>v", { desc = "Split Window Right", remap = true })
 
