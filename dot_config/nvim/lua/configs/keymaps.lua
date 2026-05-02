@@ -46,13 +46,20 @@ map("n", "<C-q>", "<cmd>qa<cr>", { desc = "Quit All" })
 map("v", "<", "<gv")
 map("v", ">", ">gv")
 
--- windows
+--windows
 map("n", "<leader>-", "<C-W>s", { desc = "Split Window Below", remap = true })
 map("n", "<leader>|", "<C-W>v", { desc = "Split Window Right", remap = true })
 
--- Netrw
+-- file manager
 -- map("n", "<C-n>", "<cmd>NvimTreeToggle<CR>", { desc = "nvimtree toggle window" })
-map("n", "<leader>e", "<cmd>Ve<CR>", { desc = "Open Netrw" })
+-- map("v", "<C-n>", "<cmd>NvimTreeToggle<CR>", { desc = "nvimtree toggle window" })
+-- map("n", "<leader>e", "<cmd>Ve<CR>", { desc = "Open Netrw" })
+-- map("v", "<leader>e", "<cmd>Ve<CR>", { desc = "Open Netrw" })
+map("n", "<leader>e", "<cmd>Yazi cwd<cr>", { desc = "Open Yazi in nvim's working directory" })
+map("v", "<leader>e", "<cmd>Yazi cwd<cr>", { desc = "Open Yazi in nvim's working directory" })
+
+-- telescope
+map("n", "<leader>fb", "<cmd>Telescope builtin<cr>", { desc = "telescope find builtin" })
 
 -- 使用 <leader>v 触发可视块模式
 map({ "n", "v" }, "<leader>v", "<C-V>", { desc = "Visual Block Mode" })
