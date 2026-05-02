@@ -1,9 +1,25 @@
 [mgr]
 show_hidden = true
-# linemode = "size_and_mtime"
+linemode = "size_and_mtime"
 
 [opener]
 play = [
 	{ run = "mpv %s", orphan = true, for = "unix" },
 	{ run = "mpv %s", orphan = true, for = "windows" },
 ]
+
+[[plugin.prepend_previewers]]
+url = '**/.git/'
+run = 'preview-git'
+
+[[plugin.prepend_fetchers]]
+id    = "git" # Remove if Yazi > v26.1.22
+url   = "*"
+run   = "git"
+group = "git"
+
+[[plugin.prepend_fetchers]]
+id    = "git" # Remove if Yazi > v26.1.22
+url   = "*/"
+run   = "git"
+group = "git"

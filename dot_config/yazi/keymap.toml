@@ -1,4 +1,5 @@
 [mgr]
 prepend_keymap = [
   { on = [ "c", "y" ], run = ["plugin copy-file-contents"], desc = "Copy contents of file" },
+  { on   = [ "g", "c" ], run  = "plugin vcs-files", desc = "Show Git file changes" },
 ]
