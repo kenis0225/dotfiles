@@ -1,5 +1,7 @@
 vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+if not vim.g.lazy_did_setup then
+  vim.g.maplocalleader = " "
+end
 
 local map = vim.keymap.set
 
