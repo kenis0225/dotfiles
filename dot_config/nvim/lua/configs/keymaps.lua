@@ -1,8 +1,8 @@
-local DEBUG = false
+local DEBUG = true
 
 vim.g.mapleader = " "
 if not vim.g.lazy_did_setup then
-	vim.g.maplocalleader = " "
+  vim.g.maplocalleader = "\\"
 end
 
 local map = vim.keymap.set
@@ -59,8 +59,8 @@ map("n", "<leader>|", "<C-W>v", { desc = "Split Window Right", remap = true })
 -- map("v", "<C-n>", "<cmd>NvimTreeToggle<CR>", { desc = "nvimtree toggle window" })
 -- map("n", "<leader>e", "<cmd>Ve<CR>", { desc = "Open Netrw" })
 -- map("v", "<leader>e", "<cmd>Ve<CR>", { desc = "Open Netrw" })
-map("n", "<leader>e", "<cmd>Yazi cwd<cr>", { desc = "Open Yazi in nvim's working directory" })
-map("v", "<leader>e", "<cmd>Yazi cwd<cr>", { desc = "Open Yazi in nvim's working directory" })
+-- map("n", "<leader>e", "<cmd>Yazi cwd<cr>", { desc = "Open Yazi in nvim's working directory" })
+-- map("v", "<leader>e", "<cmd>Yazi cwd<cr>", { desc = "Open Yazi in nvim's working directory" })
 
 -- telescope
 map("n", "<leader>fb", "<cmd>Telescope builtin<cr>", { desc = "telescope find builtin" })
