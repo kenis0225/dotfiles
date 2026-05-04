@@ -36,16 +36,24 @@ return {
 
   {
     "nvim-telescope/telescope.nvim",
-    opts = function(_, opts)
-      opts = opts or require "nvchad.configs.telescope"
-      opts.defaults = vim.tbl_deep_extend("force", opts.defaults or {}, {
+    opts = {
+      defaults = {
         cache_picker = {
-          num_pickers = 3, -- 保留最近几个 picker；-1 = 本会话全保留
+          num_pickers = -1, -- 保留最近几个 picker；-1 = 本会话全保留
           limit_entries = 2000, -- 每个 picker 最多缓存多少条结果
           ignore_empty_prompt = true, -- 空 prompt 就关的不进缓存
         },
-      })
-      return opts
-    end,
+      },
+    },
+  },
+
+  {
+    "folke/which-key.nvim",
+    opts = {
+      keys = {
+        scroll_down = "<c-n>", -- binding to scroll down inside the popup
+        scroll_up = "<c-p>", -- binding to scroll up inside the popup
+      },
+    },
   },
 }
