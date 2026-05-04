@@ -6,6 +6,7 @@ if not vim.g.lazy_did_setup then
 end
 
 local map = vim.keymap.set
+local nomap = vim.keymap.del
 
 -- better up/down
 map({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true, silent = true })
@@ -193,3 +194,5 @@ end
 
 map("n", "<LocalLeader>r", _G.run_current_line, { desc = "Execute current line as Nvim Lua" })
 map("x", "<LocalLeader>r", _G.run_visual_selection, { desc = "Execute selection as Nvim Lua" })
+
+nomap("n","<leader>fa")
