@@ -32,6 +32,9 @@ return {
     dependencies = {
       { "nvim-lua/plenary.nvim", lazy = true },
     },
+    keys = {
+      { mode = { "n", "v" }, "<leader>e", "<cmd>Yazi cwd<cr>", desc = "Open Yazi in nvim's working directory" },
+    },
   },
 
   {
@@ -50,9 +53,19 @@ return {
   {
     "folke/which-key.nvim",
     opts = {
+      preset = "helix",
       keys = {
         scroll_down = "<c-n>", -- binding to scroll down inside the popup
         scroll_up = "<c-p>", -- binding to scroll up inside the popup
+      },
+    },
+    keys = {
+      {
+        "<leader>?",
+        function()
+          require("which-key").show { global = false }
+        end,
+        desc = "Buffer Keymaps (which-key)",
       },
     },
   },
